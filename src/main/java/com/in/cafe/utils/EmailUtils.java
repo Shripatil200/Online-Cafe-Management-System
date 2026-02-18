@@ -40,14 +40,29 @@ public class EmailUtils {
     }
 
 
-    public void forgetMail(String to, String subject, String password) throws MessagingException {
+    public void forgetPasswordMail(String to, String subject, String token) throws MessagingException {
         MimeMessage message = emailSender.createMimeMessage();
         MimeMessageHelper helper = new MimeMessageHelper(message, true);
         helper.setFrom("patilshriram200@gmail.com");
         helper.setTo(to);
         helper.setSubject(subject);
-        String htmlMsg = "<p><b>Your Login details for Cafe Management System</b> <br><b>Email: <b>" + to + "<br><b>Password: </b> " + password + "<br><a href=\"http://localhost:4200/\"> Check here to login </a></p>";
+        String htmlMsg =
+                "<p><b>Hello,</b><br>" +
+                        "We received a request to reset your password.<br><br>" +
+                        "<a href='http://localhost:4200/reset-password?token=" + token + "'>" +
+                        "Reset Password</a><br><br>" +
+                        "This link will expire in 15 minutes.<br>" +
+                        "If you didn't request this, ignore this email.</p>";
         message.setContent(htmlMsg, "text/html");
+        emailSender.send(message);
+    }
+
+    public void passwordUpdatedEmail(String to, String subject, String text) {
+        SimpleMailMessage message = new SimpleMailMessage();
+        message.setFrom("patilshriram200@gmail.com");
+        message.setTo(to);
+        message.setSubject(subject);
+        message.setText(text);
         emailSender.send(message);
     }
 

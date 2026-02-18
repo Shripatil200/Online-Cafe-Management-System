@@ -35,10 +35,12 @@ public class SecurityConfig {
                 .authenticationProvider(authenticationProvider())
 
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/user/login",
-                                "/user/forgotPassword",
-                                "/user/signup")
-                        .permitAll()
+                        .requestMatchers(
+                                "/user/login",
+                                "/user/signup",
+                                "/password/forgotPassword",
+                                "/password/resetPassword"
+                        ).permitAll()
                         .anyRequest().authenticated()
                 )
                 .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class)

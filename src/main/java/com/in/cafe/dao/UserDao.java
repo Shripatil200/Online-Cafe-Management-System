@@ -23,6 +23,8 @@ public interface UserDao extends JpaRepository<User, Integer> {
 
     User findByEmail(String email);
 
-
+    @Transactional
+    @Modifying
+    Integer updatePassword(@Param("password") String password, @Param("id") Integer id);
 
 }

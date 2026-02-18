@@ -16,6 +16,8 @@ import java.io.Serializable;
 
 @NamedQuery(name = "User.getAllAdmin", query = "select u.email from User u where u.role='admin' ")
 
+@NamedQuery(name="User.updatePassword", query = "update User u set u.password=: password where u.id=:id")
+
 
 @Data
 @Entity
