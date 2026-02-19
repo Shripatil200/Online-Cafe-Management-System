@@ -9,7 +9,7 @@ import org.hibernate.annotations.DynamicUpdate;
 import java.io.Serial;
 import java.io.Serializable;
 
-@NamedQuery(name="Category.getAllCategory", query = "select c from Category c")
+@NamedQuery(name="Category.getAllCategory", query = "select distinct p.category from Product p where p.status='true'")
 
 @Data
 @Entity
