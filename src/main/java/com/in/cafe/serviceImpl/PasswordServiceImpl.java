@@ -1,6 +1,6 @@
 package com.in.cafe.serviceImpl;
 
-import com.google.common.base.Strings;
+
 import com.in.cafe.JWT.CustomerUsersDetailsService;
 import com.in.cafe.JWT.JwtFilter;
 import com.in.cafe.JWT.JwtUtil;
@@ -19,9 +19,8 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import java.time.Duration;
+
 import java.util.Map;
-import java.util.Objects;
 import java.util.Optional;
 import java.util.UUID;
 

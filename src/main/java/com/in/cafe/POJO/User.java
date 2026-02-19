@@ -5,6 +5,7 @@ import lombok.Data;
 import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
 
+import java.io.Serial;
 import java.io.Serializable;
 
 
@@ -26,6 +27,7 @@ import java.io.Serializable;
 @Table(name = "user")
 public class User implements Serializable {
 
+    @Serial
     private static final long serialVersionUID = 1L;
 
     @Id
