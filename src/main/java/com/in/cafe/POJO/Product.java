@@ -6,6 +6,7 @@ import lombok.Data;
 import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
 
+import java.io.Serial;
 import java.io.Serializable;
 
 @NamedQuery(name = "Product.getAllProduct", query = "select new com.in.cafe.wrapper.ProductWrapper(p.id, p.name, p.description, p.price, p.status, p.category.id, p.category.name) from Product p")
@@ -23,7 +24,8 @@ import java.io.Serializable;
 @Table(name = "product")
 public class Product implements Serializable {
 
-    public static final long serialVersionUid = 12345L;
+    @Serial
+    private static final long serialVersionUID = 12345L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
